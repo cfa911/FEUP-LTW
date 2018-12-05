@@ -42,7 +42,7 @@ CREATE TABLE COMMENT
 	description TEXT,
     postTime DATETIME,
     PRIMARY KEY(postTime,userID,postID)
-)
+);
 
 
 CREATE TABLE VOTECOMMENT
