@@ -39,10 +39,16 @@ CREATE TABLE COMMENT
 (
     userID INTEGER REFERENCES UTILAISER,
     postID INTEGER REFERENCES POST,
+	/*Porque podes ter 
+	comentarios dentro de comentarios e 
+	respostas em dois filhos em simultaneo
+	commentID INTEGER PRIMARY KEY, IGNOREM ISTO*/
+	commentID INTEGER ALTERNATE KEY,
 	description TEXT,
     postTime DATETIME,
-    PRIMARY KEY(postTime,userID,postID)
-);
+    /*PRIMARY KEY(postTime,userID,postID)*/
+    PRIMARY KEY(postTime,userID,postID,commentID)/*Penso estar correcto*/
+	);
 
 
 CREATE TABLE VOTECOMMENT
