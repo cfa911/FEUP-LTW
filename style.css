@@ -1,0 +1,26 @@
+body{
+    font-family: 'Pacifico', cursive;
+    padding: 2em;
+    background-color: rgb(33, 162, 236);
+
+}
+body span{
+    font-size: 5em;
+}
+body footer{
+    text-align: center;
+}
+div{
+    text-align: right;
+}
+body a{
+    
+    background-color: #046DD5;
+    padding: 1.5em;
+    border-radius: 1em;
+    margin-left:1em;
+    margin-right:1em;
+    text-align: right;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
