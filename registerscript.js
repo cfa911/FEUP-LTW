@@ -38,7 +38,6 @@ function test_strength(){
       password_strenght --;
     }
     if(/\W/.test(password) || /_/.test(password)){
-      console.log('special');
       password_strenght ++;
     }else{
       password_strenght --;
@@ -47,18 +46,26 @@ function test_strength(){
 
     switch(password_strenght){
       case 3:
+        document.querySelector('#Strength').style = "color:green";
         document.querySelector('#Strength').textContent = 'Very Strong';
         break;
       case 2:
+        document.querySelector('#Strength').style = "color:green";
         document.querySelector('#Strength').textContent = 'Strong';
         break;
       case 1:
+        document.querySelector('#Strength').style = "color:yellow";
         document.querySelector('#Strength').textContent = 'Good';
         break;
-      case 0,-1,-2,-3:
+      case 0:
+      case -1:
+      case -2:
+      case -3:
+        document.querySelector('#Strength').style = "color:red";
         document.querySelector('#Strength').textContent = 'Weak';
         break;
       default:
+        document.querySelector('#Strength').style = "color:red";
         document.querySelector('#Strength').textContent = "Very Weak";
         break;
     }
