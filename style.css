@@ -1,8 +1,13 @@
 body{
     font-family: 'Adobe Hebrew', cursive;
-    padding: 2em;
     background-color: rgb(33, 162, 236);
     color: rgb(39, 45, 48);
+}
+span{
+    position: relative;
+    top: -1.6em;
+    font-size: 4em;
+    right:-1em;
 }
 #logo{
     transform:rotate(-30deg);
@@ -14,34 +19,29 @@ div.center{
     font-size: 2em;
     font-family: 'Pacifico', cursive;
 }
-span{
-    position: relative;
-    top: -1.6em;
-    font-size: 4em;
-}
+
 span img{
     position: relative;
     top: 0.15em;
-    margin: 0;
-    padding: 0;
+
 }
 body footer{
     text-align: center;
 }
 div.right{
-    position: relative;
     text-align: right;
-    float: right;
 }
-body a{ 
-    position: relative;    
+body a{   
     background-color: #046DD5;
     padding: 1.5em;
+    border: none;
+    display: inline-block;
     border-radius: 1em;
+    margin:0;
     margin-left:1em;
     margin-right:1em;
     text-align: right;
     color: rgb(255, 255, 255);
+    cursor: pointer;
     text-decoration: none;
-    top: 0.5em;
 }
