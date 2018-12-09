@@ -13,22 +13,27 @@ div.center{
     text-align: center;
     font-size: 2em;
     font-family: 'Pacifico', cursive;
-    
 }
 span{
     position: relative;
-    top: -1.8em;}
-body span{
-    font-size: 5em;
+    top: -1.6em;
+    font-size: 4em;
+}
+span img{
+    position: relative;
+    top: 0.15em;
+    margin: 0;
+    padding: 0;
 }
 body footer{
     text-align: center;
 }
 div.right{
+    position: relative;
     text-align: right;
     float: right;
 }
-body a{
+body a{ 
     position: relative;    
     background-color: #046DD5;
     padding: 1.5em;
@@ -39,5 +44,4 @@ body a{
     color: rgb(255, 255, 255);
     text-decoration: none;
     top: 0.5em;
-
 }
