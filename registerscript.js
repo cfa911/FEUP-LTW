@@ -15,7 +15,6 @@ register.addEventListener('submit', function () {
     let password = document.getElementsByTagName('input')[2].value;
 
     if((username != '') && (e_mail != '') && (password != '') && (document.querySelector('#Strength').textContent != 'Very Weak'  && document.querySelector('#Strength').textContent != 'Weak')){
-      location = 'submission.html';
     }
 
     event.preventDefault();
@@ -45,7 +44,6 @@ function test_strength(){
     }else{
       password_strenght --;
     }
-    console.log(password_strenght);
 
     switch(password_strenght){
       case 3:
