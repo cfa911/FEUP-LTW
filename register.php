@@ -1,10 +1,12 @@
 <?php
-header("Location: index.html");
 $dbh = new PDO('sqlite:database.db');
 $counter = 0;
 $username = $_POST['username'];
 $email = $_POST['email'];
-$password = hash('sha256', 'password');
+$password = $_POST['password'];
+$options = ['cost' => 12];
+
+
 
 $get = $dbh->prepare('SELECT * FROM UTILAISER');
 $get->execute();
@@ -18,10 +20,9 @@ if(!$counter)
     $stmt = $dbh->prepare('INSERT INTO UTILAISER (username, password, email)
     VALUES (:username, :password, :email)');
 $stmt->bindParam(':username', $username);
-$stmt->bindParam(':password', $password);
+$stmt->bindParam(':password', password_hash($password, PASSWORD_DEFAULT, $options));
 $stmt->bindParam(':email', $email);
 
 $stmt->execute();
 }
-die();
 ?>
