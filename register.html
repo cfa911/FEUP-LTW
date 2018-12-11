@@ -5,13 +5,13 @@
     <title>Socially</title>
     <meta charset="UTF-8">
     <!--<link href="forms.css" rel="stylesheet">-->
-    <!--<script src="registerscript.js" defer></script>-->
+    <script src="registerscript.js"defer></script>
 </head>
 
 <body>
     <section id="register">
         <h1>Register</h1>
-        <form action="register.php" method="get" id="registerUser">
+        <form action="register.php" method="post">
             <label>
                 Username <input type="text" name="username">
             </label>
@@ -22,7 +22,7 @@
                 Password <input type="password" name="password">
             </label>
             <label>
-                Strength: <span id="Strength"></span>
+                Strength: <span id="Strength" ></span>
             </label>
             <input type="submit" value="Register">
         </form>
