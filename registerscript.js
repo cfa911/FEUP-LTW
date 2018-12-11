@@ -14,7 +14,10 @@ register.addEventListener('submit', function () {
     let e_mail = document.getElementsByTagName('input')[1].value;
     let password = document.getElementsByTagName('input')[2].value;
 
-    alert('Submitted!');
+    if((username != '') && (e_mail != '') && (password != '') && (document.querySelector('#Strength').textContent != 'Very Weak'  && document.querySelector('#Strength').textContent != 'Weak')){
+      location = 'submission.html';
+    }
+
     event.preventDefault();
   });
 
@@ -66,7 +69,7 @@ function test_strength(){
         break;
       default:
         document.querySelector('#Strength').style = "color:red";
-        document.querySelector('#Strength').textContent = "Very Weak";
+        document.querySelector('#Strength').textContent = 'Very Weak';
         break;
     }
 
