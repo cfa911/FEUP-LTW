@@ -10,9 +10,9 @@ $options = ['cost' => 12];
 
 $get = $dbh->prepare('SELECT * FROM UTILAISER');
 $get->execute();
-$picada = $get->fetchAll();
-foreach($picada as $picada){
-    if($picada['username'] == $username)
+$info = $get->fetchAll();
+foreach($info as $info){
+    if($info['username'] == $username)
     $counter = 1;
 }
 if(!$counter)
