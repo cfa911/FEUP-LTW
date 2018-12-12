@@ -5,7 +5,7 @@
     <title>Socially</title>
     <meta charset="UTF-8">
     <!--<link href="forms.css" rel="stylesheet">-->
-    <script src="registerscript.js"defer></script>
+    <script src="registerscript.js" defer></script>
 </head>
 
 <body>
@@ -13,16 +13,30 @@
         <h1>Register</h1>
         <form action="register.php" method="post">
             <label>
-                Username <input type="text" name="username">
+                <p>
+                    Username: <input type="text" name="username">
+                </p>
+                <p>
+                    E-mail: <input type="email" name="email">
+                </p>
+                Password: <input type="password" name="password">
+                <label>
+                    Strength: <span id="Strength"></span>
+                </label>
+
             </label>
+
             <label>
-                E-mail <input type="email" name="email">
-            </label>
-            <label>
-                Password <input type="password" name="password">
-            </label>
-            <label>
-                Strength: <span id="Strength" ></span>
+                <p>
+                    First Name: <input type="text" name="firstName">
+                </p>
+                <p>
+                    Last Name: <input type="text" name="lastName">
+                </p>
+                <p>
+                    Age: <input type="number" name="age">
+                </p>
+
             </label>
             <input type="submit" value="Register">
         </form>
