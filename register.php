@@ -24,5 +24,6 @@ $stmt->bindParam(':password', $passhash);
 $stmt->bindParam(':email', $email);
 
 $stmt->execute();
+header("Location: registered.html");
 }
 ?>

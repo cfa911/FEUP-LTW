@@ -25,6 +25,11 @@ span img{
     top: 0.15em;
 
 }
+
+#smiley{
+    width: 3em;
+    height: 3em;
+}
 body footer{
     text-align: center;
 }
