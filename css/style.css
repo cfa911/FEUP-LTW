@@ -1,0 +1,112 @@
+/* Header*/
+body > header {
+    background-color: #046dd5;
+    color: white;
+  
+    padding: 1em;
+}
+
+body > header h1, body > header h2{
+    margin: 0;
+    text-align: center;
+}
+
+body > header a, h2 {
+    color: rgb(0, 0, 0);
+    text-decoration: none;  
+}
+
+body > header img{
+    transform:rotate(-30deg);
+    border-radius: 2em;
+    width: 1em;
+}
+
+/* Navigation */
+#menu ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+  
+#menu li {
+    background-color: #046dd5;
+    text-align: center;
+  
+    list-style-type: none;
+  
+    padding: 1% 0;
+    width: 100%;
+}
+  
+#menu li a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 150%;
+}
+  
+#menu li:hover {
+    background-color: #000000;
+}
+  
+#menu li:hover a{
+    color: rgb(255, 255, 255);
+}
+
+/*span*/
+body span h1{
+    font-family: 'Adobe Hebrew', cursive;
+    background-color: rgb(33, 162, 236);
+    padding: 0%;
+    margin: 0%;
+}
+
+#title{
+    text-align: center;
+    font-size: 500%;
+}
+
+body > span img{
+    transform:rotate(-30deg);
+    border-radius: 100%;
+    width: 1em;
+}
+
+/*division*/
+div img{
+    width: 15em;
+    height: 15em;
+}
+
+#center{
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
+}
+
+body > div > h1{
+    margin: 0%;
+}
+
+body div{
+    font-family: 'Adobe Hebrew', cursive;
+    background-color: rgb(33, 162, 236);
+
+    padding: 0%;
+}
+
+/*footer*/
+body > footer{
+    background-color: #046dd5;  
+    padding: 2%;
+}
+
+body > footer p{
+    margin: 0%;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 120%
+}
+
+
