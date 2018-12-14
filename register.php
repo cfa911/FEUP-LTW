@@ -1,5 +1,6 @@
 <?php
 $dbh = new PDO('sqlite:database.db');
+
 $counter = 0;
 $username = $_POST['username'];
 $email = $_POST['email'];
@@ -22,12 +23,7 @@ foreach($info as $info){
 if(!$counter)
 {
 
-    $user = $dbh->prepare('INSERT INTO UTILAISER (username, password, email)
-    VALUES (:username, :password, :email)');
-    $user->bindParam(':username', $username);
-    $user->bindParam(':password', $passhash);
-    $user->bindParam(':email', $email);
-    $user->execute();
+
 
     //upload the image
     $file = $_FILES["file"];
@@ -46,6 +42,7 @@ if(!$counter)
         if($fileError === 0)
         {
             if($fileSize < 50000000){
+                
                 $fileNameNew = uniqid().".".$fileActualExt;
                 $fileDestination = 'uploads/'.$fileNameNew;
                 move_uploaded_file($fileTmpName,$fileDestination);
@@ -59,6 +56,25 @@ if(!$counter)
                 $stmt->bindParam(':file_dest', $fileDestination);
                 $stmt->execute();
 
+                $user = $dbh->prepare('INSERT INTO UTILAISER (username, password, email)
+                VALUES (:username, :password, :email)');
+                $user->bindParam(':username', $username);
+                $user->bindParam(':password', $passhash);
+                $user->bindParam(':email', $email);
+                $user->execute();
+
+                $karma = 0;
+                    //create profile
+                $profile = $dbh->prepare('INSERT INTO PROFILE (username, firstName, lastName, age, imageID, karma)
+                Values (:username, :firstName, :lastName, :age, :imageID, :karma)');
+                $profile->bindParam(':username', $username);
+                $profile->bindParam(':firstName', $firstName);
+                $profile->bindParam(':lastName', $lastName);
+                $profile->bindParam(':age', $age);
+                $profile->bindParam(':imageID', $newID);
+                $profile->bindParam(':karma', $karma);
+                $profile->execute();
+                
             }else{
                 echo "Your file is too big!";
             }
@@ -70,23 +86,6 @@ if(!$counter)
     else{
         echo "invalid file type";
     }
-
-    echo $username;
-    echo $firstName;
-    echo $lastName;
-    echo $age;
-    echo $newID;
-
-    //create profile
-    $profile = $dbh->prepare('INSERT INTO PROFILE (username, firstName, lastName, age, imageID)
-      Values (:username, :firstName, :lastName, :age, :imageID)');
-    $profile->bindParam(':username', $username);
-    $profile->bindParam(':firstName', $firstName);
-    $profile->bindParam(':lastName', $lastName);
-    $profile->bindParam(':age', $age);
-    $profile->bindParam(':imageID', $newID);
-    $profile->execute();
-
     //header("Location: registered.html");
 }
 ?>
