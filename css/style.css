@@ -53,42 +53,47 @@ body > header img{
     color: rgb(255, 255, 255);
 }
 
-/*span*/
-body span h1{
+/*title*/
+#title{
     font-family: 'Adobe Hebrew', cursive;
     background-color: rgb(33, 162, 236);
-    padding: 0%;
-    margin: 0%;
+
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    
 }
 
-#title{
+#title h1{
+    font-family: 'Adobe Hebrew', cursive;
     text-align: center;
-    font-size: 500%;
+    font-size: 1000%;
+    background-color: rgb(33, 162, 236);
 }
 
-body > span img{
+
+#title img{
+    max-width: 20%;
     transform:rotate(-30deg);
     border-radius: 100%;
-    width: 1em;
+    size: 30%;
+    padding: 3%;
 }
 
-/*division*/
-div img{
-    width: 15em;
-    height: 15em;
-}
 
+/*center*/
 #center{
     text-align: center;
     font-size: 2em;
     font-family: 'Pacifico', cursive;
 }
 
-body > div > h1{
+#center h1{
     margin: 0%;
 }
 
-body div{
+#center{
     font-family: 'Adobe Hebrew', cursive;
     background-color: rgb(33, 162, 236);
 
@@ -98,7 +103,7 @@ body div{
 /*footer*/
 body > footer{
     background-color: #046dd5;  
-    padding: 2%;
+    padding: 1%;
 }
 
 body > footer p{
