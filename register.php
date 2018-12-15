@@ -86,6 +86,6 @@ if(!$counter)
     else{
         echo "invalid file type";
     }
-    //header("Location: registered.html");
+    header("Location: registered.html");
 }
 ?>
