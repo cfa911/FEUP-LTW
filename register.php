@@ -88,4 +88,6 @@ if(!$counter)
     }
     header("Location: registered.html");
 }
+else
+    header("Location: register_taken.html");
 ?>
