@@ -35,7 +35,7 @@ body > header img{
   
     list-style-type: none;
   
-    padding: 1% 0;
+    padding: 0% 0;
     width: 100%;
 }
   
@@ -46,7 +46,7 @@ body > header img{
 }
   
 #menu li:hover {
-    background-color: #000000;
+    background-color: #8cc505;
 }
   
 #menu li:hover a{
@@ -61,9 +61,9 @@ body > header img{
     display: flex;
     width: 100%;
     flex-direction: row;
-    align-items: center;
-    
+    align-items: center;  
 }
+
 
 #title h1{
     font-family: 'Adobe Hebrew', cursive;
@@ -72,12 +72,19 @@ body > header img{
     background-color: rgb(33, 162, 236);
 }
 
+@media(max-width: 1000px) {
+    #title h1 {
+      font-size: 6em;
+    }
+  } 
+
+
 
 #title img{
     max-width: 20%;
     transform:rotate(-30deg);
     border-radius: 100%;
-    size: 30%;
+    size: 100px;
     padding: 3%;
 }
 
@@ -114,4 +121,24 @@ body > footer p{
     font-size: 120%
 }
 
+button {
+    background-color:  #046dd5;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
 
+button:hover {
+    opacity:1;
+}
+
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+    .indexb {
+      width: 100%;
+    }
+}

@@ -4,22 +4,40 @@
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
-    <!--<link href="forms.css" rel="stylesheet">-->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/forms.css" rel="stylesheet">
 </head>
 
 <body>
+    <header>
+        <h1>
+            <a href="index.html">
+                <img id="logo" src="Logo.png" > 
+            </a>
+            <a href="index.html">Socially</a>
+        </h1>
+        <h2> Where life friendships are made</h2>
+    </header>
+
     <section id="login">
         <h1>Login</h1>
         <form action="login.php" method="post">
-            <label>
-                Username <input type="text" name="username">
-            </label>
-            <label>
-                Password <input type="password" name="password">
-            </label>
-            <input type="submit" name = "submit" value="Login">
+
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+        
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <div class="clearfix">
+                <a href="index.html">
+                    <button type="button" class="cancelbtn">Cancel</button>
+                </a>
+                <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
         </form>
     </section>
+
     <footer>
         <p>&copy; Socially, 2018</p>
     </footer>
