@@ -72,11 +72,7 @@ body > header img{
     background-color: rgb(33, 162, 236);
 }
 
-@media(max-width: 1000px) {
-    #title h1 {
-      font-size: 6em;
-    }
-  } 
+
 
 
 
@@ -136,9 +132,29 @@ button:hover {
     opacity:1;
 }
 
-/* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
-    .indexb {
-      width: 100%;
-    }
+/*Smile*/
+#smile img{
+    padding: 2%;
+}
+
+#smile h1, #smile p{
+    margin: 0%;
+}
+
+#smile img, #smile h1{
+    display: block;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    width: 50%;
+    text-align: center;
+}
+
+#logs> a {
+    display: block;
+    
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
 }
