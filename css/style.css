@@ -35,8 +35,12 @@ body > header img{
   
     list-style-type: none;
   
-    padding: 0% 0;
+    padding: 0% 0%;
     width: 100%;
+}
+.indexb{
+    margin: 0%;
+    opacity: 0.8;
 }
   
 #menu li a{
@@ -45,9 +49,6 @@ body > header img{
     font-size: 150%;
 }
   
-#menu li:hover {
-    background-color: #8cc505;
-}
   
 #menu li:hover a{
     color: rgb(255, 255, 255);
@@ -68,19 +69,17 @@ body > header img{
 #title h1{
     font-family: 'Adobe Hebrew', cursive;
     text-align: center;
-    font-size: 1000%;
+    font-size: 15vw;
     background-color: rgb(33, 162, 236);
 }
 
 
-
-
-
 #title img{
+    margin-left: 5vw;
     max-width: 20%;
     transform:rotate(-30deg);
     border-radius: 100%;
-    size: 100px;
+    size: 50vp;
     padding: 3%;
 }
 
@@ -88,7 +87,7 @@ body > header img{
 /*center*/
 #center{
     text-align: center;
-    font-size: 2em;
+    font-size: 4vw;
     font-family: 'Pacifico', cursive;
 }
 
@@ -101,6 +100,11 @@ body > header img{
     background-color: rgb(33, 162, 236);
 
     padding: 0%;
+}
+
+#center img{
+    height: 50vw;
+    width: 50vw;
 }
 
 /*footer*/
@@ -157,4 +161,8 @@ button:hover {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+}
+
+#hamburger, .hamburger {
+    display: none;
 }
