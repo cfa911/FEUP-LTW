@@ -1,10 +1,3 @@
-<?php 
-include('login.php');
-
-if($_SESSION['sessionid'] === session_id()){
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en-US">
 
@@ -20,19 +13,33 @@ if($_SESSION['sessionid'] === session_id()){
 <body>
     <header>
             <h1>
-                <a href="feed.php">
+                <a href="index.html">
                     <img id="logo" src="Logo.png" > 
                 </a>
-                <a href="feed.php">Socially</a>
+                <a href="index.html">Socially</a>
             </h1>
+            <h2> Where lifelong friendships are made</h2>
     </header>
 
     <nav id="menu">
         <ul>
-            <li><a href="create.php">Create Story</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="clean.php">Clean Database</a></li>
+            <li><a href="image.html">Image</a></li>
         </ul>
     </nav>
+
+    <div id="title">
+        <img id="logo" src="Logo.png">
+        <h1>Socially</h1>
+    </div>
+
+    <div id="center">
+        <h1>Connect with your friends and family</h1>
+        <img id="connect" src="connect.png">
+    </div>
+    
     <footer>
         <p>&copy; Socially, 2018</p>
     </footer>

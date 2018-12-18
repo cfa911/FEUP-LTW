@@ -36,6 +36,8 @@ function requestListener() {
   else{
     document.querySelector('#Username').style = "color:green";
     document.querySelector('#Username').textContent = 'Username Avaliable!';
+    username_filled = true;
+
     
   }
 }
@@ -46,8 +48,10 @@ let request = new XMLHttpRequest();
 
 
 username_box.addEventListener('input', function () {
-  if (username_box.value == '') {
+
+  if (username_box.value != '') {
     username_filled = true;
+
   } else {
     username_filled = false;
   }

@@ -18,7 +18,7 @@
             </a>
             <a href="index.html">Socially</a>
         </h1>
-        <h2> Where life friendships are made</h2>
+        <h2> Where lifelong friendships are made</h2>
     </header>
 <section id="create">
         <form action="story.php" method="post" enctype="multipart/form-data">
