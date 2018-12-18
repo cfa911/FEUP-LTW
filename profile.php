@@ -8,10 +8,10 @@
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
+    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--<link href="forms.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -27,43 +27,58 @@
 
     <nav id="menu">
         <ul>
-            <li><a href="feed.php">Feed</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li>
+                <a href="feed.php">
+                    <button type="button" class="indexb">Feed</button>
+                </a>
+            </li>
         </ul>
     </nav>
 
-    <div id="title">
-        <img id="logo" src="Logo.png">
-        <h1>Socially</h1>
-    </div>
-
-    <div id="center">
-        <h1>Connect with your friends and family</h1>
+    <div id="profile">
+       <h4>Photo</h4>
         <img id="photo" src=<?php
-        $stmt = $dbh->prepare('select file_name from IMAGES where imageID = ( select imageID from Profile where username = ?)');
-        $stmt->execute(array($_SESSION['username']));
-        $result = $stmt->fetch();
-        echo $result['file_name'];?>>
-        <p><?php
-        $stmt = $dbh->prepare('select firstName from Profile where username = ?');
-        $stmt->execute(array($_SESSION['username']));
-        $result = $stmt->fetch();
-        echo $result['firstName'];?></p>
-        <p><?php
-        $stmt = $dbh->prepare('select lastName from Profile where username = ?');
-        $stmt->execute(array($_SESSION['username']));
-        $result = $stmt->fetch();
-        echo $result['lastName'];?></p>
-        <p><?php
-        $stmt = $dbh->prepare('select age from Profile where username = ?');
-        $stmt->execute(array($_SESSION['username']));
-        $result = $stmt->fetch();
-        echo $result['age'];?></p>
-        <p><?php
-        $stmt = $dbh->prepare('select karma from Profile where username = ?');
-        $stmt->execute(array($_SESSION['username']));
-        $result = $stmt->fetch();
-        echo $result['karma'];?></p>
+            $stmt = $dbh->prepare('select file_name from IMAGES where imageID = ( select imageID from Profile where username = ?)');
+            $stmt->execute(array($_SESSION['username']));
+            $result = $stmt->fetch();
+            echo $result['file_name'];
+            ?>>
+        <h3>First Name</h3>
+        <div>
+            <?php
+            $stmt = $dbh->prepare('select firstName from Profile where username = ?');
+            $stmt->execute(array($_SESSION['username']));
+            $result = $stmt->fetch();
+            echo $result['firstName'];
+            ?>
+        </div>
+        <h3>Last Name</h3>
+        <div>
+            <?php
+            $stmt = $dbh->prepare('select lastName from Profile where username = ?');
+            $stmt->execute(array($_SESSION['username']));
+            $result = $stmt->fetch();
+            echo $result['lastName'];
+            ?>
+        </div>
+        <h3>Age</h3>
+        <div>
+            <?php
+            $stmt = $dbh->prepare('select age from Profile where username = ?');
+            $stmt->execute(array($_SESSION['username']));
+            $result = $stmt->fetch();
+            echo $result['age'];
+            ?>
+        </div>
+        <h3>Karma</h3>
+        <div>
+            <?php
+            $stmt = $dbh->prepare('select karma from Profile where username = ?');
+            $stmt->execute(array($_SESSION['username']));
+            $result = $stmt->fetch();
+            echo $result['karma'];
+            ?>
+        </div>
     </div>
 
     <footer>

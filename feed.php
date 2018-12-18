@@ -29,11 +29,26 @@ if($_SESSION['sessionid'] === session_id()){
 
     <nav id="menu">
         <ul>
-            <li><a href="create.php">Create Story</a></li>
-            <li><a href="profile.php">Profile</a></li>
+        <li>
+                <a href="create.php">
+                    <button type="button" class="indexb">Create Story</button>
+                </a>
+            </li>
+            <li>
+                <a href="profile.php">
+                    <button type="button" class="indexb">Profile</button>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <button type="button" class="indexb">Logout</button>
+                </a>
+            </li>
         </ul>
     </nav>
         <?php
+
+            
             $stmt = $dbh->prepare('select * from POST INNER JOIN STORY 
             ON STORY.postID = POST.postID ORDER BY postTime DESC');
             $stmt->execute();
@@ -54,7 +69,13 @@ if($_SESSION['sessionid'] === session_id()){
                     <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
                     <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
                     <button type= "submit"  class= "upvotes">
-                    upvotes</button></form></a>votes: <?php echo $result['vote']; ?>
+                    upvotes</button></form></a>votes: <?php 
+                    $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from (VOTE INNER JOIN POST 
+                    ON VOTE.postID = POST.postID) INNER JOIN UTILAISER 
+                    ON UTILAISER.username = VOTE.username');
+                    $votes->execute();
+                    $voters = $votes->fetch();
+                    echo $voters['SUMATORY'] + 0; ?>
                     <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
                     <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
                     <button type= "submit"  class= "downvotes">downvotes</button></form>

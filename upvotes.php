@@ -26,6 +26,9 @@ if($aux == 1)
     $dele->execute(array($_SESSION['username'],$postID));
 }
 else{
+    $dele = $dbh->prepare('delete from VOTE
+    WHERE VOTE.username = ? AND VOTE.postID = ?');
+    $dele->execute(array($_SESSION['username'],$postID));
 $vote = $dbh->prepare('INSERT INTO VOTE (postID, username, value)
 VALUES (:postID, :username, :value)');
 $vote->bindParam(':postID', $postID);
