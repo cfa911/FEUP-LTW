@@ -23,7 +23,6 @@
 <section id="create">
         <form action="story.php" method="post" enctype="multipart/form-data">
             <div class="container">
-            
                 <h1>Create a Story</h1>
                 <hr>
                 <input type="text" placeholder="Enter Title" name="title" required>
