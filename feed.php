@@ -29,21 +29,10 @@ if($_SESSION['sessionid'] === session_id()){
 
     <nav id="menu">
         <ul>
-            <li><a href="feed.php">Feed</a></li>
+            <li><a href="create.php">Feed</a></li>
             <li><a href="profile.html">Profile</a></li>
         </ul>
     </nav>
-
-    <div id="title">
-        <img id="logo" src="Logo.png">
-        <h1>Socially</h1>
-    </div>
-
-    <div id="center">
-        <h1>Connect with your friends and family</h1>
-        <img id="connect" src="connect.png">
-    </div>
-    
     <footer>
         <p>&copy; Socially, 2018</p>
     </footer>
