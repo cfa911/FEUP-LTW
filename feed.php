@@ -55,7 +55,7 @@ if($_SESSION['sessionid'] === session_id()){
             $results = $stmt->fetchall();
             $i = 0; /* for illustrative purposes only */
             foreach($results as $result):?>
-                <div> 
+                <div class= "story"> 
                     <p> <?php echo $result['username']; ?></p>
                     <h1> <?php echo $result['title']; ?></h1>
                     <?php if($result['imageID'] != NULL):
@@ -66,19 +66,81 @@ if($_SESSION['sessionid'] === session_id()){
                            echo $imgres['file_name']?>><?php endif?>
                     <h2> <?php echo $result['description']; ?></h2>
                     <p> <?php echo $result['postTime']; ?></p>
+
+
+                    <form action="commenting.php" method="post" enctype="multipart/form-data">
+                       <input type="hidden" name="postID" value=<?php echo $result['postID']; ?>>
+                       <button type="submit">Comment</button>
+                    </form>
                     <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
                     <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
                     <button type= "submit"  class= "upvotes">
                     upvotes</button></form></a>votes: <?php 
                     $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
-                    ON VOTE.postID = POST.postID) INNER JOIN UTILAISER 
-                    ON UTILAISER.username = VOTE.username)');
-                    $votes->execute();
+                    ON POST.postID = ?) INNER JOIN UTILAISER 
+                    ON ? = POST.username)');
+                    $votes->execute(array($result['postID'],$result['username']));
                     $voters = $votes->fetch();
                     echo $voters['SUMATORY'] + 0; ?>
                     <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
                     <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
                     <button type= "submit"  class= "downvotes">downvotes</button></form>
+
+                    <!--1st-level comments-->
+                    <?php $comment = $dbh->prepare('select * from POST INNER JOIN COMMENT ON COMMENT.commentID = POST.postID Where COMMENT.parentID = ? ORDER BY postTime');
+                    $comment->execute(array($result['postID']));
+                    $subresults = $comment->fetchall();
+
+                    foreach($subresults as $subresult):?>
+                        <div class="comentary">
+                            <p> <?php echo $subresult['username']; ?></p>
+                            <h2> <?php echo $subresult['description']; ?></h1>
+                            <p> <?php echo $subresult['postTime']; ?></p>
+                            <form action="commenting.php" method="post" enctype="multipart/form-data">
+                               <input type="hidden" name="postID" value=<?php echo $subresult['postID']; ?>>
+                               <button type="submit">Comment</button>
+                            </form>
+                            <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
+                                <input type= "hidden" name = "postID" value = <?php echo $subresult['postID']?>>
+                                <button type= "submit"  class= "upvotes">
+                                upvotes</button></form></a>votes: <?php 
+                                $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
+                                ON POST.postID = ?) INNER JOIN UTILAISER 
+                                ON ? = POST.username)');
+                                $votes->execute(array($subresult['postID'],$subresult['username']));
+                                $voters = $votes->fetch();
+                                echo $voters['SUMATORY'] + 0; ?>
+                                <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
+                                <input type= "hidden" name = "postID" value = <?php echo $subresult['postID']?>>
+                                <button type= "submit"  class= "downvotes">downvotes</button>
+                            </form>
+
+                            <!--2nd-level comments-->
+                            <?php $subcomment = $dbh->prepare('select * from POST INNER JOIN COMMENT ON COMMENT.commentID = POST.postID Where COMMENT.parentID = ? ORDER BY postTime');
+                            $subcomment->execute(array($subresult['postID']));
+                            $finalresults = $subcomment->fetchall();
+                            foreach($finalresults as $finalresult):?>
+                                <div class="subcommentary">
+                                    <p> <?php echo $finalresult['username']; ?></p>
+                                    <h2> <?php echo $finalresult['description']; ?></h1>
+                                    <p> <?php echo $finalresult['postTime']; ?></p>
+                                    <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
+                                        <input type= "hidden" name = "postID" value = <?php echo $finalresult['postID']?>>
+                                        <button type= "submit"  class= "upvotes">
+                                        upvotes</button></form></a>votes: <?php 
+                                        $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
+                                        ON POST.postID = ?) INNER JOIN UTILAISER 
+                                        ON ? = POST.username)');
+                                        $votes->execute(array($finalresult['postID'],$finalresult['username']));
+                                        $voters = $votes->fetch();
+                                        echo $voters['SUMATORY'] + 0; ?>
+                                        <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
+                                        <input type= "hidden" name = "postID" value = <?php echo $finalresult['postID']?>>
+                                        <button type= "submit"  class= "downvotes">downvotes</button></form>
+                                </div>
+                            <?php endforeach?>
+                        </div>
+                    <?php endforeach?>
                 </div>
                 <?php endforeach
             ?>
