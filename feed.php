@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('login.php');
 
 if($_SESSION['sessionid'] === session_id()){
@@ -21,7 +21,7 @@ if($_SESSION['sessionid'] === session_id()){
     <header>
             <h1>
                 <a href="feed.php">
-                    <img id="logo" src="Logo.png" > 
+                    <img id="logo" src="Logo.png" >
                 </a>
                 <a href="feed.php">Socially</a>
             </h1>
@@ -30,7 +30,7 @@ if($_SESSION['sessionid'] === session_id()){
     <nav id="menu">
         <ul>
             <li><a href="create.php">Create Story</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
     <footer>
