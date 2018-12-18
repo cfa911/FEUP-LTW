@@ -1,5 +1,5 @@
 <?php
-include('login.php');
+include_once('login.php');
 $dbh = new PDO('sqlite:database.db');
 $username = $_SESSION['username'];
 $description = $_POST['description'];

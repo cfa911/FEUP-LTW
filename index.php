@@ -13,10 +13,10 @@
 <body>
     <header>
             <h1>
-                <a href="index.html">
+                <a href="index.php">
                     <img id="logo" src="Logo.png" > 
                 </a>
-                <a href="index.html">Socially</a>
+                <a href="index.php">Socially</a>
             </h1>
             <h2> Where lifelong friendships are made</h2>
     </header>

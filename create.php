@@ -13,10 +13,10 @@
 <body>
 <header>
         <h1>
-            <a href="index.html">
+            <a href="index.php">
                 <img id="logo" src="Logo.png" > 
             </a>
-            <a href="index.html">Socially</a>
+            <a href="index.php">Socially</a>
         </h1>
         <h2> Where lifelong friendships are made</h2>
     </header>
@@ -30,14 +30,14 @@
                 <input type="file" placeholder="Select Photo" name="file" id="file"> 
             </div>
             <div class="clearfix">
-                <a href="index.html">
+                <a href="index.php">
                     <button type="button" class="cancelbtn">Cancel</button>
                 </a>
                 <button type="submit" class="signupbtn">Sign Up</button>
             </div>
         </form>
     </section>
-    <?php include('templates/footer.php');?>
+    <?php include_once('templates/footer.php');?>
 
 </body>
 
