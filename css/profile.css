@@ -25,3 +25,8 @@
     width: 40vw;
     margin-top: 0;
 }
+
+.story > div img{
+    width: 50%;
+    height: 50%;
+}

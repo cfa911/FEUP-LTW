@@ -14,6 +14,9 @@ if(isset($_POST['username'])){
         $_SESSION['username'] = $username;
         header("Location: feed.php");
     }
+    else{
+        header("Location: login.html");
+    }
 }
 $_SESSION['sessionid'] = session_id();
 ?>

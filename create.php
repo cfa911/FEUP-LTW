@@ -19,7 +19,7 @@
         </h1>
         <h2> Where lifelong friendships are made</h2>
     </header>
-<section id="create">
+    <section id="create">
         <form action="story.php" method="post" enctype="multipart/form-data">
             <div class="container">
                 <h1>Create a Story</h1>
@@ -38,10 +38,10 @@
                 <input type="file" placeholder="Select Photo" name="file" id="file"> 
             </div>
             <div class="clearfix">
-                <a href="index.php">
+                <a href="feed.php">
                     <button type="button" class="cancelbtn">Cancel</button>
                 </a>
-                <button type="submit" class="signupbtn">Create Strory</button>
+                <button type="submit" class="signupbtn">Create Story</button>
             </div>
         </form>
     </section>

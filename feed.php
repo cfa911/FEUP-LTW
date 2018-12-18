@@ -11,10 +11,10 @@ if($_SESSION['sessionid'] === session_id()){
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
+    <link href="css/forms.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/feed.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--<link href="forms.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -46,8 +46,8 @@ if($_SESSION['sessionid'] === session_id()){
             </li>
         </ul>
     </nav>
-        <?php
 
+        <?php
             
             $stmt = $dbh->prepare('select * from POST INNER JOIN STORY 
             ON STORY.postID = POST.postID ORDER BY postTime DESC');
@@ -55,36 +55,57 @@ if($_SESSION['sessionid'] === session_id()){
             $results = $stmt->fetchall();
             $i = 0; /* for illustrative purposes only */
             foreach($results as $result):?>
-                <div class= "story"> 
-                    <p> <?php echo $result['username']; ?></p>
-                    <h1> <?php echo $result['title']; ?></h1>
-                    <?php if($result['imageID'] != NULL):
-                           ?><img src= <?php         
-                           $img = $dbh->prepare('select file_name from IMAGES where imageID = ?');
-                           $img->execute(array($result['imageID']));
-                           $imgres = $img->fetch();
-                           echo $imgres['file_name']?>><?php endif?>
-                    <h2> <?php echo $result['description']; ?></h2>
-                    <p> <?php echo $result['postTime']; ?></p>
+                
+                <div class= "story">
+                    <div>
+                        <h3>Author:</h3>
+                    </div> 
+                     <?php echo $result['username']; ?>
+                    <h1> 
+                        <?php echo $result['title']; ?>
+                    </h1>
+                    <?php if($result['imageID'] != NULL):?>
+                        <img src= 
+                        <?php         
+                        $img = $dbh->prepare('select file_name from IMAGES where imageID = ?');
+                        $img->execute(array($result['imageID']));
+                        $imgres = $img->fetch();
+                        echo $imgres['file_name']?>>
+                        <?php endif?>
+                    <h2> 
+                        <?php echo $result['description']; ?>
+                    </h2>
+                    <div> 
+                        <?php echo $result['postTime']; ?>
+                    </div>
 
 
                     <form action="commenting.php" method="post" enctype="multipart/form-data">
                        <input type="hidden" name="postID" value=<?php echo $result['postID']; ?>>
-                       <button type="submit">Comment</button>
+                       <button class="commnt" type="submit">Comment</button>
                     </form>
+
                     <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
-                    <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
-                    <button type= "submit"  class= "upvotes">
-                    upvotes</button></form></a>votes: <?php 
-                    $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
-                    ON POST.postID = ?) INNER JOIN UTILAISER 
-                    ON ? = POST.username)');
-                    $votes->execute(array($result['postID'],$result['username']));
-                    $voters = $votes->fetch();
-                    echo $voters['SUMATORY'] + 0; ?>
+                        <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
+                        <button type= "submit"  class= "upvotes">
+                     upvotes</button>
+                    </form></a>
+                    
                     <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
-                    <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
-                    <button type= "submit"  class= "downvotes">downvotes</button></form>
+                        <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
+                        <button type= "submit"  class= "downvotes">downvotes</button></form>
+                    
+                    votes: 
+                     
+                     <?php 
+                        $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
+                        ON POST.postID = ?) INNER JOIN UTILAISER 
+                        ON ? = POST.username)');
+                        $votes->execute(array($result['postID'],$result['username']));
+                        $voters = $votes->fetch();
+                        echo $voters['SUMATORY'] + 0; 
+                    ?>
+                    
 
                     <!--1st-level comments-->
                     <?php $comment = $dbh->prepare('select * from POST INNER JOIN COMMENT ON COMMENT.commentID = POST.postID Where COMMENT.parentID = ? ORDER BY postTime');
