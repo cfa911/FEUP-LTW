@@ -11,7 +11,6 @@ if($_SESSION['sessionid'] === session_id()){
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
-    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -30,24 +29,10 @@ if($_SESSION['sessionid'] === session_id()){
 
     <nav id="menu">
         <ul>
-            <li>
-                <a href="create.php">
-                    <button type="button" class="indexb">Create Story</button>
-                </a>
-            </li>
-            <li>
-                <a href="profile.php">
-                    <button type="button" class="indexb">Profile</button>
-                </a>
-            </li>
-            <li>
-                <a href="logout.php">
-                    <button type="button" class="indexb">Logout</button>
-                </a>
-            </li>
+            <li><a href="create.php">Create Story</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
-    
         <?php
             $stmt = $dbh->prepare('select * from POST INNER JOIN STORY 
             ON STORY.postID = POST.postID ORDER BY postTime DESC');
@@ -66,9 +51,13 @@ if($_SESSION['sessionid'] === session_id()){
                            echo $imgres['file_name']?>><?php endif?>
                     <h2> <?php echo $result['description']; ?></h2>
                     <p> <?php echo $result['postTime']; ?></p>
-                    <form action="votes.php" method="post" enctype="multipart/form-data">
-                    <p><button type= "upvoute">upvote</button>votes: <?php echo $result['vote']; ?> <button type= "downvote">downvote</button></p>
-                    </form>
+                    <form action = "upvotes.php" method = "post" enctype="multipart/form-data"> 
+                    <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
+                    <button type= "submit"  class= "upvotes">
+                    upvotes</button></form></a>votes: <?php echo $result['vote']; ?>
+                    <form action = "downvotes.php" method = "post" enctype="multipart/form-data"> 
+                    <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
+                    <button type= "submit"  class= "downvotes">downvotes</button></form>
                 </div>
                 <?php endforeach
             ?>
