@@ -1,4 +1,4 @@
-<?php 
+<?php
 include('login.php');
 
 if($_SESSION['sessionid'] === session_id()){
@@ -21,7 +21,7 @@ if($_SESSION['sessionid'] === session_id()){
     <header>
             <h1>
                 <a href="index.html">
-                    <img id="logo" src="Logo.png" > 
+                    <img id="logo" src="Logo.png" >
                 </a>
                 <a href="index.html">Socially</a>
             </h1>
@@ -30,7 +30,7 @@ if($_SESSION['sessionid'] === session_id()){
     <nav id="menu">
         <ul>
             <li><a href="feed.php">Feed</a></li>
-            <li><a href="profile.html">Profile</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
 
@@ -43,7 +43,7 @@ if($_SESSION['sessionid'] === session_id()){
         <h1>Connect with your friends and family</h1>
         <img id="connect" src="connect.png">
     </div>
-    
+
     <footer>
         <p>&copy; Socially, 2018</p>
     </footer>
