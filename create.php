@@ -5,9 +5,8 @@
     <title>Socially</title>
     <meta charset="UTF-8">
     <link href="css/style.css" rel="stylesheet">
-    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/forms.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-    <!--<link href="forms.css" rel="stylesheet">-->
 </head>
 
 <body>
@@ -25,15 +24,24 @@
             <div class="container">
                 <h1>Create a Story</h1>
                 <hr>
-                <input type="text" placeholder="Enter Title" name="title" required>
-                <input type="text" placeholder="Enter description" name="description" required>
+                
+                <label for="Title"><b>Title</b></label>
+                <input type="text" placeholder="Enter Title" name="userntitleame" required>
+
+                <label for="Description">
+                    <b>Description</b>
+                    <textarea name="description" rows="5" cols="50" > </textarea>
+                </label>
+
+                <p></p>
+                <label for="file"><b>Photo</b></label>
                 <input type="file" placeholder="Select Photo" name="file" id="file"> 
             </div>
             <div class="clearfix">
                 <a href="index.php">
                     <button type="button" class="cancelbtn">Cancel</button>
                 </a>
-                <button type="submit" class="signupbtn">Sign Up</button>
+                <button type="submit" class="signupbtn">Create Strory</button>
             </div>
         </form>
     </section>
