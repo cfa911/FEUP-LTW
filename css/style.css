@@ -122,13 +122,14 @@ body > footer p{
 }
 
 button {
-    background-color:  #046dd5;
+    background-color:  #000000;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    height: 100%;
     opacity: 0.9;
 }
 
@@ -165,4 +166,22 @@ button:hover {
 
 #hamburger, .hamburger {
     display: none;
+}
+
+/*profile*/
+#profile{
+    text-align: center;
+    font-size: 4vw;
+    font-family: 'Pacifico', cursive;
+}
+
+#profile h3{
+    margin: 0%;
+}
+
+#profile{
+    font-family: 'Adobe Hebrew', cursive;
+    background-color: rgb(33, 162, 236);
+
+    padding: 0%;
 }

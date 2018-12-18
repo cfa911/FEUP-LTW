@@ -11,6 +11,7 @@ if($_SESSION['sessionid'] === session_id()){
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
+    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -29,10 +30,24 @@ if($_SESSION['sessionid'] === session_id()){
 
     <nav id="menu">
         <ul>
-            <li><a href="create.php">Create Story</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li>
+                <a href="create.php">
+                    <button type="button" class="indexb">Create Story</button>
+                </a>
+            </li>
+            <li>
+                <a href="profile.php">
+                    <button type="button" class="indexb">Profile</button>
+                </a>
+            </li>
+            <li>
+                <a href="logout.php">
+                    <button type="button" class="indexb">Logout</button>
+                </a>
+            </li>
         </ul>
     </nav>
+    
         <?php
             $stmt = $dbh->prepare('select * from POST INNER JOIN STORY 
             ON STORY.postID = POST.postID ORDER BY postTime DESC');
