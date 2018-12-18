@@ -17,8 +17,8 @@ CREATE TABLE POST
 	postID INTEGER PRIMARY KEY,
 	username TEXT NOT NULL REFERENCES UTILAISER,
 	description TEXT,
-    postTime DATETIME,
-	vote INTEGER NOT NULL Check (vote = -1 OR vote = 1)
+    postTime TIME,
+	vote INTEGER NOT NULL
 );
 
 CREATE TABLE STORY

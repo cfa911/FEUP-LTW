@@ -28,6 +28,16 @@ function encodeForAjax(data) {
 
 function requestListener() {
   reply = JSON.parse(this.responseText);
+  if(reply == 1){
+    document.querySelector('#Username').style = "color:red";
+    document.querySelector('#Username').textContent = 'Username Unavaliable!';
+    username_filled = false;
+  }
+  else{
+    document.querySelector('#Username').style = "color:green";
+    document.querySelector('#Username').textContent = 'Username Avaliable!';
+    
+  }
 }
 
 document.getElementsByTagName('button')[1].disabled = true;
@@ -36,26 +46,16 @@ let request = new XMLHttpRequest();
 
 
 username_box.addEventListener('input', function () {
-  if (username_box.value != '') {
+  if (username_box.value == '') {
     username_filled = true;
   } else {
     username_filled = false;
   }
-
   request.onload = requestListener;
   request.open("post", "query.php", true);
   request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
   request.send(encodeForAjax({ username: username_box.value}));
-  console.log(username_box.value);
-  console.log(reply);
-  if(reply == 1){
-    document.querySelector('#Username').style = "color:red";
-    document.querySelector('#Username').textContent = 'Username Unavaliable!';
-  }
-  else{
-    document.querySelector('#Username').style = "color:green";
-    document.querySelector('#Username').textContent = 'Username Avaliable!';
-  }
+  
   test_ready();
 });
 

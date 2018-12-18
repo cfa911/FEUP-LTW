@@ -1,5 +1,6 @@
 <?php
 $dbh = new PDO('sqlite:database.db');
+
 $username = $_POST['username'];
 $counter = 0;
 $get = $dbh->prepare('SELECT * FROM UTILAISER');

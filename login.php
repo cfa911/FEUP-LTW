@@ -12,7 +12,6 @@ if(isset($_POST['username'])){
     $user = $stmt->fetch();
     if ($user !== false && password_verify($password, $user['password'])) {
         $_SESSION['username'] = $username;
-        
         header("Location: feed.php");
     }
 }
