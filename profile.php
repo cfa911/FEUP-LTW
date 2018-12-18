@@ -8,7 +8,6 @@
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
-    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -29,7 +28,7 @@
     <nav id="menu">
         <ul>
             <li><a href="feed.php">Feed</a></li>
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="profile.php">Profile</a></li>
         </ul>
     </nav>
 

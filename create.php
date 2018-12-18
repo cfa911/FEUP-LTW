@@ -4,7 +4,6 @@
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
-    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -12,12 +11,12 @@
 </head>
 
 <body>
-    <header>
+<header>
         <h1>
-            <a href="feed.php">
-                <img id="logo" src="Logo.png" >
+            <a href="index.html">
+                <img id="logo" src="Logo.png" > 
             </a>
-            <a href="feed.php">Socially</a>
+            <a href="index.html">Socially</a>
         </h1>
         <h2> Where lifelong friendships are made</h2>
     </header>
@@ -28,7 +27,7 @@
                 <hr>
                 <input type="text" placeholder="Enter Title" name="title" required>
                 <input type="text" placeholder="Enter description" name="description" required>
-                <input type="file" placeholder="Select Photo" name="file" id="file" required>
+                <input type="file" placeholder="Select Photo" name="file" id="file"> 
             </div>
             <div class="clearfix">
                 <a href="index.html">

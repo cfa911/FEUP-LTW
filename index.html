@@ -4,7 +4,6 @@
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
-    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/responsive.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">

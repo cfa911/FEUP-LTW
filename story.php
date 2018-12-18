@@ -55,8 +55,6 @@ if(isset($_FILES["file"]))
 }
 else
 {
-    echo 1;
-
     $imageID = NULL;
 }
 
@@ -72,10 +70,8 @@ $story = $dbh->prepare('INSERT INTO STORY (postID, title, imageID)
 Values (:postID, :title, :imageID)');
 $story->bindParam(':postID', $postID);
 $story->bindParam(':title', $title);
-echo 1;
 
 $story->bindParam(':imageID', $imageID);
-echo $imageID;
 
 $story->execute();
 $post->execute();
