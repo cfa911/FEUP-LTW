@@ -10,7 +10,6 @@ $postID = uniqid();
 
 if(isset($_FILES["file"]))
 {
-    echo 1;
     //upload the image
     $file = $_FILES["file"];
     $fileName = $_FILES["file"]["name"];
@@ -76,6 +75,5 @@ $story->bindParam(':imageID', $imageID);
 $story->execute();
 $post->execute();
 
-header('Location: create.php');
-die();
+header("Location: create.php");
 ?>
