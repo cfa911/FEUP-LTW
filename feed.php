@@ -70,9 +70,9 @@ if($_SESSION['sessionid'] === session_id()){
                     <input type= "hidden" name = "postID" value = <?php echo $result['postID']?>>
                     <button type= "submit"  class= "upvotes">
                     upvotes</button></form></a>votes: <?php 
-                    $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from (VOTE INNER JOIN POST 
+                    $votes = $dbh->prepare('select sum(VOTE.value) AS SUMATORY from ((VOTE INNER JOIN POST 
                     ON VOTE.postID = POST.postID) INNER JOIN UTILAISER 
-                    ON UTILAISER.username = VOTE.username');
+                    ON UTILAISER.username = VOTE.username)');
                     $votes->execute();
                     $voters = $votes->fetch();
                     echo $voters['SUMATORY'] + 0; ?>
