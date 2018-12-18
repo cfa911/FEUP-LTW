@@ -1,5 +1,5 @@
 <?php 
-include('login.php');
+include_once('login.php');
 
 if($_SESSION['sessionid'] === session_id()){
 }
@@ -51,10 +51,12 @@ if($_SESSION['sessionid'] === session_id()){
                            echo $imgres['file_name']?>><?php endif?>
                     <h2> <?php echo $result['description']; ?></h2>
                     <p> <?php echo $result['postTime']; ?></p>
-                    <p> votes: <?php echo $result['vote']; ?></p>
+                    <form action="votes.php" method="post" enctype="multipart/form-data">
+                    <p><button type= "upvoute">upvote</button>votes: <?php echo $result['vote']; ?> <button type= "downvote">downvote</button></p>
+                    </form>
                 </div>
                 <?php endforeach
-        ?>
+            ?>
     <footer>
         <p>&copy; Socially, 2018</p>
     </footer>

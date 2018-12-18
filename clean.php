@@ -1,5 +1,5 @@
 <?php
-header("Location: index.html");
+header("Location: index.php");
 $dbh = new PDO('sqlite:database.db');
 
 $sql = file_get_contents('database.sql');
