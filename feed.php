@@ -11,6 +11,7 @@ if($_SESSION['sessionid'] === session_id()){
 <head>
     <title>Socially</title>
     <meta charset="UTF-8">
+    <link rel="icon" href="Logo.png">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
@@ -19,12 +20,13 @@ if($_SESSION['sessionid'] === session_id()){
 
 <body>
     <header>
-            <h1>
-                <a href="feed.php">
-                    <img id="logo" src="Logo.png" >
-                </a>
-                <a href="feed.php">Socially</a>
-            </h1>
+        <h1>
+            <a href="feed.php">
+                <img id="logo" src="Logo.png" >
+            </a>
+            <a href="feed.php">Socially</a>
+        </h1>
+        <h2> Where lifelong friendships are made</h2>
     </header>
 
     <nav id="menu">
